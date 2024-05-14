@@ -1,7 +1,6 @@
 #include "header.h"
 
-
-//Fungsi untuk membaca data produk dari file eksternal
+//Fungsi akan membaca data produk dari file eksternal
 void bacaDataBarang(Produk dataproduk[], int *jumlahproduk) {
     FILE *file;
     file = fopen("data_barang.txt", "r");
@@ -18,14 +17,15 @@ void bacaDataBarang(Produk dataproduk[], int *jumlahproduk) {
     fclose(file);
 }
 
-//Fungsi untuk menampilkan daftar produk
+//Fungsi untuk menampilkan daftar produk yang telah ada di file eksternal
+//menampilkan display dari daftar produk
 void tampilkanDaftarBarang(Produk dataproduk[], int jumlahproduk){
     printf("----------------------------------------------------------------\n");
     printf("\t\t\tDAFTAR PRODUK\t\t\t\t|\n");
     printf("----------------------------------------------------------------\n");
     printf("KODE PRODUK\t|NAMA PRODUK\t|HARGA PRODUK\t|STOK PRODUK\t|\n");
     printf("----------------------------------------------------------------\n");
-
+//bagian ini akan menampilkan produk yang sebelumnya sudah diinput oleh user kedalam file eksternal
     for (int i = 0; i < jumlahproduk; i++) {
         printf("%s\t\t|%s\t\t|%.2f\t|%d\t\t|\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
     }
