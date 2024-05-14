@@ -9,3 +9,4 @@ Fungsi-Fungsi yang akan kami gunakan pada project UAS ini:
   7. transaksi.c
   8. makefile
 
+Untuk menampilkan semua fungsi yang kami gunakan di atas, kami menggunakan file (data_barang.txt)
