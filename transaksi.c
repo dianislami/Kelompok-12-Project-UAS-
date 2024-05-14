@@ -7,6 +7,8 @@ void pembayaran(Produk dataproduk[], int jumlahproduk) {
     char kodeproduk[10];
     int jumlah;
 
+    //meminta user untuk memilih produk mana yang akan di beli
+    //jenis produk akan ditentukan dengan kode produk 
     while (1) {
         printf("Masukkan kode produk yang akan dibeli (ketik 'selesai' untuk selesai): ");
         scanf("%s", kodeproduk);
@@ -15,6 +17,7 @@ void pembayaran(Produk dataproduk[], int jumlahproduk) {
             break;
         }
 
+        //meminta user untuk menentukan seberapa banyak jumlah barang yang dibeli
         for (int i = 0; i < jumlahproduk; i++) {
             if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
                 printf("Masukkan jumlah produk yang akan dibeli: ");
@@ -41,7 +44,8 @@ void pembayaran(Produk dataproduk[], int jumlahproduk) {
     diskon20 = totalBelanja - (totalBelanja*20/100);
     diskon25 = totalBelanja - (totalBelanja*25/100);
 
-    //Menentukan total belanja setelah diskon
+    //Mengubah harga total belanja dari user setelah diskon
+    //diskon ditentukan dengan banyaknya harga total dari barang yang dibeli
     //Diskon sebesar 10%
     if ((totalBelanja >= 100000) && (totalBelanja < 500000)){
         printf("--------------------------------\n");
@@ -60,7 +64,7 @@ void pembayaran(Produk dataproduk[], int jumlahproduk) {
         printf("Selamat Anda mendapatkan diskon!\n");
         printf("Total belanja Anda setelah diskon adalah %.2f\n", diskon25);
     }
-    //Tidak mendapat diskon
+    //jika tidak mendapat diskon
     else if (totalBelanja < 100000){
         printf("----------------------------------------------------------------------\n");
         printf("Maaf, Anda tidak mendapat diskon karena tidak mencapai minimal belanja\n");
