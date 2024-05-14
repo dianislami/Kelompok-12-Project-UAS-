@@ -18,14 +18,14 @@ void bacaDataBarang(Produk dataproduk[], int *jumlahproduk) {
 }
 
 //Fungsi untuk menampilkan daftar produk yang telah ada di file eksternal
-//menampilkan display dari daftar produk
+//Menampilkan display dari daftar produk
 void tampilkanDaftarBarang(Produk dataproduk[], int jumlahproduk){
     printf("----------------------------------------------------------------\n");
     printf("\t\t\tDAFTAR PRODUK\t\t\t\t|\n");
     printf("----------------------------------------------------------------\n");
     printf("KODE PRODUK\t|NAMA PRODUK\t|HARGA PRODUK\t|STOK PRODUK\t|\n");
     printf("----------------------------------------------------------------\n");
-//bagian ini akan menampilkan produk yang sebelumnya sudah diinput oleh user kedalam file eksternal
+//Bagian ini akan menampilkan produk yang sebelumnya sudah diinput oleh user kedalam file eksternal
     for (int i = 0; i < jumlahproduk; i++) {
         printf("%s\t\t|%s\t\t|%.2f\t|%d\t\t|\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
     }
