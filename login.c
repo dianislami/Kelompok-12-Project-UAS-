@@ -1,5 +1,4 @@
-#include <stdio.h>
-#include <string.h>
+#include "header.h"
 
 //Fungsi untuk melakukan login sebelum memulai mesin kasir
 int Login() {
