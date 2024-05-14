@@ -1,6 +1,10 @@
 #ifndef TES_H
 #define TES_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 #define MAX_BARANG 100
 #define MIN_BARANG 0
 
