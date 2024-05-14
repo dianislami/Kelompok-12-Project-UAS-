@@ -27,39 +27,6 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
     (*jumlahproduk)++;
 }
 
-//Fungsi untuk menghapus produk dari daftar produk
-void kurangBarang(Produk dataproduk[], int *jumlahproduk) {
-    if (*jumlahproduk <= MIN_BARANG) {
-        printf("==Produk tidak dapat dikurang!==\n");
-        return;
-    }
-
-    printf("-----------------------\n");
-    printf("Masukkan kode produk: ");
-    scanf("%s", dataproduk[*jumlahproduk].kode);
-    printf("Masukkan nama produk: ");
-    scanf("%s", dataproduk[*jumlahproduk].nama);
-    printf("-----------------------\n");
-    printf("Produk berhasil dihapus!\n");
-   
-    (*jumlahproduk)--;
-}
-
-//Fungsi untuk menulis data barang ke file eksternal
-void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
-    FILE *file;
-    file = fopen("data_barang.txt", "w");
-    if (file == NULL) {
-        printf("File data_barang.txt tidak dapat dibuka.\n");
-        exit(1);
-    }
-
-    for (int i = 0; i < jumlahproduk; i++) {
-        fprintf(file, "%s %s %.2f %d\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
-    }
-
-    fclose(file);
-}
 // Fungsi untuk menghapus produk dari daftar produk
 void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
     if (*jumlahproduk <= MIN_BARANG) {
@@ -88,5 +55,21 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
 
     if (!found) {
         printf("Kode produk tidak ditemukan!\n");
+    }
 }
+
+//Fungsi untuk menulis data barang ke file eksternal
+void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
+    FILE *file;
+    file = fopen("data_barang.txt", "w");
+    if (file == NULL) {
+        printf("File data_barang.txt tidak dapat dibuka.\n");
+        exit(1);
+    }
+
+    for (int i = 0; i < jumlahproduk; i++) {
+        fprintf(file, "%s %s %.2f %d\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
+    }
+
+    fclose(file);
 }
