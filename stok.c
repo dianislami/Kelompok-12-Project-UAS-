@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include "header.h"
 
 //Fungsi untuk menambahkan stok barang
