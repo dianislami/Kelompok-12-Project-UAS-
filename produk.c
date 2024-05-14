@@ -1,7 +1,5 @@
 #include "header.h"
 
-#define MAX_BARANG 100
-
 //Fungsi untuk menambahkan barang ke daftar barang
 void tambahBarang(Produk dataproduk[], int *jumlahproduk){
     if (*jumlahproduk >= MAX_BARANG) {
