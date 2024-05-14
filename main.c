@@ -38,7 +38,7 @@ int main() {
                 tulisDataBarang(dataproduk, jumlahproduk);
                 break;
             case 2:
-                kurangBarang(dataproduk, &jumlahproduk);
+                hapusBarang(dataproduk, &jumlahproduk);
                 tulisDataBarang(dataproduk, jumlahproduk);
                 break;
             case 3:
