@@ -60,3 +60,33 @@ void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
 
     fclose(file);
 }
+// Fungsi untuk menghapus produk dari daftar produk
+void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
+    if (*jumlahproduk <= MIN_BARANG) {
+        printf("==Produk tidak dapat dikurang!==\n");
+        return;
+    }
+
+    char kodeproduk[10];
+    printf("-----------------------\n");
+    printf("Masukkan kode produk yang akan dihapus: ");
+    scanf("%s", kodeproduk);
+
+    int found = 0;
+    for (int i = 0; i < *jumlahproduk; i++) {
+        if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
+            found = 1;
+            for (int j = i; j < *jumlahproduk - 1; j++) {
+                dataproduk[j] = dataproduk[j + 1];
+            }
+            (*jumlahproduk)--;
+            printf("-----------------------\n");
+            printf("Produk berhasil dihapus!\n");
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("Kode produk tidak ditemukan!\n");
+}
+}
