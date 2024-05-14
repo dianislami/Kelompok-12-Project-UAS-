@@ -1,8 +1,5 @@
 #include "header.h"
 
-#define MAX_BARANG 100
-#define MIN_BARANG 0
-
 int main() {
     Produk dataproduk[MAX_BARANG];
     int jumlahproduk = 0;
