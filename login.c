@@ -1,6 +1,7 @@
 #include "header.h"
 
 //Fungsi untuk melakukan login sebelum memulai mesin kasir
+//define beberapa variabel yang diperlukan
 int Login() {
     char Password[] = "klp12";
     char username[50];
