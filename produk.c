@@ -1,6 +1,9 @@
 #include "header.h"
 
 //Fungsi untuk menambahkan barang ke daftar barang
+//Parameter:
+//    dataproduk: array dari struct produk yang menyimpan data produk
+//    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
 void tambahBarang(Produk dataproduk[], int *jumlahproduk){
     if (*jumlahproduk >= MAX_BARANG) {
         printf("Kapasitas daftar produk penuh!\n");
