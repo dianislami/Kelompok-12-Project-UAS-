@@ -5,6 +5,7 @@
 //    dataproduk: array dari struct produk yang menyimpan data produk
 //    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
 void tambahBarang(Produk dataproduk[], int *jumlahproduk){
+    //cek apakah kapasitas daftar produk sudah penuh
     if (*jumlahproduk >= MAX_BARANG) {
         printf("Kapasitas daftar produk penuh!\n");
         return;
