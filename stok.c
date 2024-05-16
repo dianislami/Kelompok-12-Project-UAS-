@@ -9,10 +9,8 @@ void tambahStok(Produk dataproduk[], int jumlahproduk){
     char kodeproduk[20];
     
     printf("-----------------------\n");
-    // Minta pengguna memasukkan kode produk
     printf("Masukkan kode produk: ");
     scanf("%s", kodeproduk);
-    // Minta pengguna memasukkan jumlah stok yang ingin ditambahkan
     printf("Masukkan jumlah yang ingin ditambah: ");
     scanf("%d", &jumlah);
 
@@ -33,18 +31,13 @@ void tambahStok(Produk dataproduk[], int jumlahproduk){
 }
 
 //Fungsi untuk mengurangkan stok barang
-// Parameter:
-//    dataproduk: array dari struct Produk yang menyimpan data produk
-//    jumlahproduk: integer yang menyimpan jumlah produk saat ini
 void kurangiStok(Produk dataproduk[], int jumlahproduk) {
     int jumlah;
     char kodeproduk[20];
 
     printf("-----------------------\n");
-    // Minta pengguna memasukkan kode produk
     printf("Masukkan kode produk: ");
     scanf("%s", kodeproduk);
-    // Minta pengguna memasukkan jumlah stok yang ingin dikurangi
     printf("Masukkan jumlah yang ingin dikurang: ");
     scanf("%d", &jumlah);
 
