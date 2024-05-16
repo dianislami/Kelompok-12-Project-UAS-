@@ -11,22 +11,16 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
         return;
     }
 
-    //cetak garis pemisah untuk memperjelas antarmuka input
     // Input data produk dari pengguna
     printf("-----------------------\n");
-    // Minta pengguna untuk memasukkan kode
     printf("Masukkan kode produk: ");
     scanf("%s", dataproduk[*jumlahproduk].kode);
-    // Minta pengguna memasukkan nama produk
     printf("Masukkan nama produk: ");
     scanf("%s", dataproduk[*jumlahproduk].nama);
-    // Minta pengguna memasukkan harga produk
     printf("Masukkan harga produk: ");
     scanf("%f", &dataproduk[*jumlahproduk].harga);
-    // Minta pengguna memasukkan stok produk
     printf("Masukkan stok produk: ");
     scanf("%d", &dataproduk[*jumlahproduk].stok);
-    //cetak garis pemisah untuk memperjelas antarmuka input
     printf("-------------------------\n");
     printf("Produk berhasil ditambah!\n");
 
@@ -35,9 +29,6 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
 }
 
 // Fungsi untuk menghapus produk dari daftar produk
-// Parameter:
-//    dataproduk: array dari struct Produk yang menyimpan data produk
-//    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
 void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
     //Cek apakah jumlah produk lebih dari batas minimum
     if (*jumlahproduk <= MIN_BARANG) {
@@ -76,9 +67,6 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
 }
 
 //Fungsi untuk menulis data barang ke file eksternal
-//Parameter:
-//    dataproduk: array dari struct produk yang menyimpan data produk
-//    jumlahproduk: integer yang menyimpan jumlah produk saat ini
 void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
     FILE *file;
     //Buka file data_barang.txt dalam mode tulis
