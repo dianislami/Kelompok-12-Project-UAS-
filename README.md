@@ -138,6 +138,110 @@ h) return 0;: Mengembalikan nilai 0 untuk menunjukkan bahwa login gagal.\
 Fungsi Login digunakan untuk mengautentikasi pengguna sebelum mereka dapat mengakses mesin kasir. Pengguna diminta untuk memasukkan username dan password. Password dibandingkan dengan nilai yang telah ditentukan ("klp12"). Jika password cocok, fungsi mengembalikan nilai 1 dan menampilkan pesan sukses. Jika password tidak cocok, fungsi mengembalikan nilai 0 dan menampilkan pesan kesalahan.
 
 ## 4. stok.c
+
+      #include "header.h"
+
+Sintaks ini berfungsi untuk memasukkan file header header.h ke dalam program yang memungkinkan stok.c mengakses semua deklarasi yang ada di dalam file header tersebut, termasuk definisi struct dan prototype fungsi.
+
+      // Fungsi untuk menambahkan stok barang
+      // Parameter:
+      //    dataproduk: array dari struct produk yang menyimpan data produk
+      //    jumlahproduk: integer yang menyimpan jumlah produk saat ini
+      void tambahStok(Produk dataproduk[], int jumlahproduk) {
+          int jumlah;
+          char kodeproduk[20];
+
+### Deklarasi Variabel ###
+a) jumlah: Variabel bertipe integer untuk menyimpan jumlah stok yang ingin ditambahkan.
+b) kodeproduk[20]: Array karakter untuk menyimpan kode produk yang akan ditambahkan stoknya.
+
+          // Input data produk dari pengguna
+          printf("-----------------------\n");
+          printf("Masukkan kode produk: ");
+          scanf("%s", kodeproduk);
+          printf("Masukkan jumlah yang ingin ditambah: ");
+          scanf("%d", &jumlah);
+
+Fungsi ini meminta pengguna memasukkan kode produk dan jumlah stok yang ingin ditambahkan. Kode produk dan jumlah stok disimpan dalam variabel kodeproduk dan jumlah.
+
+             // Cari produk berdasarkan kode
+             for (int i = 0; i < jumlahproduk; i++) {
+                 // Jika kode produk ditemukan
+                 if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
+                     // Tambahkan jumlah ke stok produk yang sesuai
+                     dataproduk[i].stok += jumlah;
+                     // Tampilkan pesan sukses
+                     printf("\n==Stok produk berhasil ditambahkan==\n");
+                     // Keluar dari fungsi setelah stok ditambahkan
+                     return;
+                 }
+             }
+             // Tampilkan pesan jika kode produk tidak ditemukan
+             printf("==Kode produk tidak ditemukan==\n");
+         }
+
+### Deskripsi ###
+Deskripsi:
+a) for (int i = 0; i < jumlahproduk; i++): Loop untuk mencari produk berdasarkan kode yang dimasukkan.
+b) if (strcmp(dataproduk[i].kode, kodeproduk) == 0): Fungsi strcmp digunakan untuk membandingkan string kodeproduk dengan dataproduk[i].kode. Jika hasilnya 0 (kedua string sama), maka produk ditemukan.
+c) dataproduk[i].stok += jumlah;: Menambahkan jumlah stok yang diinput pengguna ke stok produk yang sesuai.
+d) printf("\n==Stok produk berhasil ditambahkan==\n");: Menampilkan pesan bahwa stok produk berhasil ditambahkan.
+e) return;: Keluar dari fungsi setelah stok ditambahkan.
+f) printf("==Kode produk tidak ditemukan==\n");: Menampilkan pesan jika kode produk tidak ditemukan.
+
+         // Fungsi untuk mengurangkan stok barang
+         void kurangiStok(Produk dataproduk[], int jumlahproduk) {
+             int jumlah;
+             char kodeproduk[20];
+
+### Deklarasi Variabel ###
+a) jumlah: Variabel bertipe integer untuk menyimpan jumlah stok yang ingin dikurangi.
+b) kodeproduk[20]: Array karakter untuk menyimpan kode produk yang akan dikurangi stoknya.
+
+             // Input data produk dari pengguna
+             printf("-----------------------\n");
+             printf("Masukkan kode produk: ");
+             scanf("%s", kodeproduk);
+             printf("Masukkan jumlah yang ingin dikurang: ");
+             scanf("%d", &jumlah);
+
+Fungsi ini meminta pengguna memasukkan kode produk dan jumlah stok yang ingin dikurangi. Kode produk dan jumlah stok disimpan dalam variabel kodeproduk dan jumlah.
+
+         // Cari produk berdasarkan kode
+         for (int i = 0; i < jumlahproduk; i++) {
+              // Jika kode produk ditemukan
+              if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
+              // Jika jumlah yang ingin dikurangi lebih besar dari stok yang tersedia
+               if (jumlah > dataproduk[i].stok) {
+                  // Tampilkan pesan stok tidak mencukupi
+                printf("Stok produk tidak mencukupi.\n");
+               } else {
+                // Kurangi jumlah dari stok produk yang sesuai
+                dataproduk[i].stok -= jumlah;
+                // Tampilkan pesan sukses
+                printf("\n==Stok produk berhasil dikurangi==\n");
+            }
+            // Keluar dari fungsi setelah stok dikurangi atau jika stok tidak mencukupi
+            return;
+           }
+          }
+          // Tampilkan pesan jika kode produk tidak ditemukan
+          printf("==Kode produk tidak ditemukan==\n");
+      }
+
+### Deskripsi ###
+a) for (int i = 0; i < jumlahproduk; i++): Loop untuk mencari produk berdasarkan kode yang dimasukkan.
+b) if (strcmp(dataproduk[i].kode, kodeproduk) == 0): Fungsi strcmp digunakan untuk membandingkan string kodeproduk dengan dataproduk[i].kode. Jika hasilnya 0 (kedua string sama), maka produk ditemukan.
+c) if (jumlah > dataproduk[i].stok): Memeriksa apakah jumlah yang ingin dikurangi lebih besar dari stok yang tersedia.
+d) printf("Stok produk tidak mencukupi.\n");: Menampilkan pesan bahwa stok produk tidak mencukupi.
+e) dataproduk[i].stok -= jumlah;: Mengurangi jumlah stok yang diinput pengguna dari stok produk yang sesuai.
+f) printf("\n==Stok produk berhasil dikurangi==\n");: Menampilkan pesan bahwa stok produk berhasil dikurangi.
+g) return;: Keluar dari fungsi setelah stok dikurangi atau jika stok tidak mencukupi.
+h) printf("==Kode produk tidak ditemukan==\n");: Menampilkan pesan jika kode produk tidak ditemukan.
+
+### Kesimpulan ###
+Fungsi tambahStok digunakan untuk menambahkan stok produk berdasarkan kode produk yang dimasukkan pengguna. Fungsi kurangiStok digunakan untuk mengurangkan stok produk berdasarkan kode produk yang dimasukkan pengguna. Kedua fungsi melakukan pencarian produk berdasarkan kode, memodifikasi stok produk, dan menampilkan pesan sukses atau pesan kesalahan sesuai dengan kondisi yang terjadi.
+
 ## 5. produk.c
 ## 6. tampilan.c
 ## 7. transaksi.c
