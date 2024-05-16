@@ -11,16 +11,22 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
         return;
     }
 
-    //input data produk dari pengguna
+    //cetak garis pemisah untuk memperjelas antarmuka input
+    // Input data produk dari pengguna
     printf("-----------------------\n");
+    // Minta pengguna untuk memasukkan kode
     printf("Masukkan kode produk: ");
     scanf("%s", dataproduk[*jumlahproduk].kode);
+    // Minta pengguna memasukkan nama produk
     printf("Masukkan nama produk: ");
     scanf("%s", dataproduk[*jumlahproduk].nama);
+    // Minta pengguna memasukkan harga produk
     printf("Masukkan harga produk: ");
     scanf("%f", &dataproduk[*jumlahproduk].harga);
+    // Minta pengguna memasukkan stok produk
     printf("Masukkan stok produk: ");
     scanf("%d", &dataproduk[*jumlahproduk].stok);
+    //cetak garis pemisah untuk memperjelas antarmuka input
     printf("-------------------------\n");
     printf("Produk berhasil ditambah!\n");
 
@@ -41,6 +47,7 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
 
     char kodeproduk[10];
     printf("-----------------------\n");
+    // Minta pengguna memasukkan kode produk yang akan dihapus
     printf("Masukkan kode produk yang akan dihapus: ");
     scanf("%s", kodeproduk);
 
