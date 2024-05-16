@@ -413,6 +413,25 @@ Bagian ini adalah loop for yang mencetak setiap baris produk dari array dataprod
 Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBarang, yang bekerja sama untuk membaca data produk dari file eksternal, menyimpannya dalam array struktur data, dan menampilkannya dalam format tabel yang terstruktur. Fungsi bacaDataBarang bertugas membuka file, membaca baris-baris produk, dan menghitung jumlah produk yang berhasil dibaca, sementara fungsi tampilkanDaftarBarang bertanggung jawab untuk mencetak daftar produk yang telah dibaca ke layar dengan format tabel yang jelas. Dengan kerja sama kedua fungsi ini, pengguna dapat dengan mudah menyimpan, mengelola, dan melihat daftar produk yang tersedia.
 
 ## 7. transaksi.c
+	
+ 	#include "header.h"
+
+  Sintaks ini berfungsi untuk memasukkan file header header.h ke dalam program yang memungkinkan program utama mengakses semua header yang tertera dan definisi struct Produk serta semua prototype fungsi yang ada di header.h.
+
+ 	 void pembayaran(Produk dataproduk[], int jumlahproduk) {
+  		
+ Fungsi pembayaran bertujuan untuk menghitung total belanja berdasarkan produk yang dipilih oleh pengguna, serta menerapkan diskon sesuai dengan aturan yang ditentukan.
+
+ **##deklarasi variabel**
+ 
+ 	 float totalBelanja = 0;
+ 	  	 float diskon10, diskon20, diskon25;
+   		 char kodeproduk[10];
+   		 int jumlah;
+      
+ a) float totalBelanja = 0;: Variabel totalBelanja digunakan untuk menyimpan jumlah total belanjaan, awalnya diinisialisasi dengan nilai 0. b)float diskon10, diskon20, diskon25;: Variabel diskon10, diskon20, dan diskon25 digunakan untuk menyimpan nilai diskon yang akan diberikan, masing-masing untuk diskon 10%, 20%, dan 25%. c) char kodeproduk[10];: Array kodeproduk digunakan untuk menyimpan kode produk yang akan dipilih oleh pengguna. d) int jumlah;: Variabel jumlah digunakan untuk menyimpan jumlah produk yang akan dibeli oleh pengguna.
+
+
 
 
 ## 8. makefile
