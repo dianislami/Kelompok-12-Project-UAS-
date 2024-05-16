@@ -363,7 +363,7 @@ c) fclose(file);: Menutup file setelah selesai menulis.
 Fungsi tambahBarang digunakan untuk menambahkan barang ke daftar barang dengan meminta input dari pengguna. Fungsi hapusBarang digunakan untuk menghapus produk dari daftar barang berdasarkan kode produk yang dimasukkan pengguna. Fungsi tulisDataBarang digunakan untuk men
 
 ## 6. tampilan.c
- #include "header.h"
+	 #include "header.h"
 
    Sintaks ini berfungsi untuk memasukkan file header header.h ke dalam program yang memungkinkan program utama mengakses semua header yang tertera dan definisi struct Produk serta semua prototype fungsi yang ada di header.h.
 
