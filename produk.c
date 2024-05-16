@@ -53,6 +53,8 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
             for (int j = i; j < *jumlahproduk - 1; j++) {
                 dataproduk[j] = dataproduk[j + 1];
             }
+
+            //Kurangi jumlah produk
             (*jumlahproduk)--;
             printf("-----------------------\n");
             printf("Produk berhasil dihapus!\n");
@@ -60,23 +62,30 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
         }
     }
 
+    //jika kode produk tidak ditemukan
     if (!found) {
         printf("Kode produk tidak ditemukan!\n");
     }
 }
 
 //Fungsi untuk menulis data barang ke file eksternal
+//Parameter:
+//    dataproduk: array dari struct produk yang menyimpan data produk
+//    jumlahproduk: integer yang menyimpan jumlah produk saat ini
 void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
     FILE *file;
+    //Buka file data_barang.txt dalam mode tulis
     file = fopen("data_barang.txt", "w");
     if (file == NULL) {
         printf("File data_barang.txt tidak dapat dibuka.\n");
         exit(1);
     }
 
+    // Tulis data produk ke dalam file 
     for (int i = 0; i < jumlahproduk; i++) {
         fprintf(file, "%s %s %.2f %d\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
     }
 
+    // Tutup file
     fclose(file);
 }
