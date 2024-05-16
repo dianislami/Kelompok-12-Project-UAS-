@@ -1,5 +1,5 @@
 # Kelompok 12 Project UAS
-Fungsi-Fungsi yang akan kami gunakan pada project UAS ini adalah
+Fungsi-Fungsi yang akan kami gunakan pada project UAS ini adalah sebagai berikut:
 
 ## 1. header.h
 File ini berisi semua header yang akan digunakan dalam kode program yaitu stdio.h, stdlib.h, dan string.h serta definisi struct dan prototype dari semua fungsi yang digunakan dalam project uas ini.
