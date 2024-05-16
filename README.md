@@ -379,7 +379,8 @@ Menentukan bahwa output dari proses kompilasi ini adalah sebuah executable berna
       ./main
 
 Perintah ini menjalankan executable main yang baru saja dibuat.
-## Kesimpulan
+
+### Kesimpulan ###
 Makefile adalah sebuah berkas teks yang berisi serangkaian aturan untuk mengotomatisasi proses kompilasi dan pengelolaan proyek perangkat lunak. Makefile membantu mengelola proyek yang terdiri dari banyak file sumber dan dependensi, sehingga memudahkan dan mempercepat proses kompilasi.
 
 Untuk menampilkan semua fungsi yang kami gunakan di atas, kami menggunakan file external txt yaitu data_barang.txt
