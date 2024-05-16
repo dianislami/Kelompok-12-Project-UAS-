@@ -468,6 +468,8 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
 	diskon20 = totalBelanja - (totalBelanja*20/100);
 	diskon25 = totalBelanja - (totalBelanja*25/100);
 
+ bagian ini akan menunjukkan bahwa diskon berapa persen yang dimana harganya akan terpengaruhi oleh pengurangan diskon
+
  
 ## 8. makefile
 
