@@ -16,7 +16,12 @@ Struct ini digunakan untuk merepresentasikan produk yang dikelola dalam program 
        int Login();
        void bacaDataBarang(Produk dataproduk[], int *jumlahproduk);
        void tulisDataBarang(Produk dataproduk[], int jumlahproduk);
-       ...
+       void tambahBarang(Produk dataproduk[], int *jumlahproduk);
+       void hapusBarang(Produk dataproduk[], int *jumlahproduk);
+       void tampilkanDaftarBarang(Produk dataproduk[], int jumlahproduk);
+       void pembayaran(Produk dataproduk[], int jumlahproduk);
+       void tambahStok(Produk dataproduk[], int jumlahproduk);
+       void kurangiStok(Produk dataproduk[], int jumlahproduk);
        
 ### Deskripsi fungsi: 
 a)int Login: Fungsi untuk melakukan proses login oleh kasir. 
@@ -58,16 +63,55 @@ Fungsi ini digunakan untuk memverifikasi login user. Jika login berhasil, fungsi
           printf("\n======= MENU KASIR =======\n");
           printf("1. Tambah Produk\n");
           printf("2. Hapus Produk\n");
-          ...
+          printf("3. Tambah Stok Produk\n");
+          printf("4. Kurangi Stok Produk\n");
+          printf("5. Tampilkan Daftar Produk\n");
+          printf("6. Pembayaran\n");
+          printf("7. Keluar\n");
+          printf("==========================\n");
+          printf("Masukkan pilihan Anda: ");
+          scanf("%d", &pilihan);
           
 Loop ini terus berjalan selama variabel nilai = 1 dan memungkinkan user untuk berinteraksi dengan menu kasir berulang kali hingga memilih untuk keluar.
 
       switch (pilihan) {
             case 1:
+	    //menu untuk tambah barang
                 tambahBarang(dataproduk, &jumlahproduk);
                 tulisDataBarang(dataproduk, jumlahproduk);
                 break;
-                ...
+            //menu untuk menghapus barang 
+            case 2:
+                hapusBarang(dataproduk, &jumlahproduk);
+                tulisDataBarang(dataproduk, jumlahproduk);
+                break;
+            //menu untuk menambah stok dari barang yang sudah ada di dalam ada di file external
+            case 3:
+                tambahStok(dataproduk, jumlahproduk);
+                tulisDataBarang(dataproduk, jumlahproduk);
+                break;
+            //menu untuk mengurangi stok dari barang yang sudah ada di dalam ada di file external
+            case 4:
+                kurangiStok(dataproduk, jumlahproduk);
+                tulisDataBarang(dataproduk, jumlahproduk);
+                break;
+            //menu untuk menampilkan barang barang yang telah tertera di file external
+            case 5:
+                tampilkanDaftarBarang(dataproduk, jumlahproduk);
+                tulisDataBarang(dataproduk, jumlahproduk);
+                break;
+            //menu untuk memproses pembayaran yang ada di dalam program
+            case 6:
+                pembayaran(dataproduk, jumlahproduk);
+                tulisDataBarang(dataproduk, jumlahproduk);
+                break;
+            //menu untuk keluar dari program
+            case 7:
+                exit(0);
+            default:
+                printf("Pilihan tidak valid.\n");
+            }
+       }
                 
 ### Deskripsi:
 a)switch (pilihan): Struktur switch ini mengevaluasi nilai pilihan dan menjalankan blok kode yang sesuai.
