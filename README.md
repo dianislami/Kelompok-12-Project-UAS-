@@ -470,6 +470,15 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
 
  bagian ini akan menunjukkan bahwa diskon berapa persen yang dimana harganya akan terpengaruhi oleh pengurangan diskon
 
+    if ((totalBelanja >= 100000) && (totalBelanja < 500000)){
+        printf("--------------------------------\n");
+        printf("Selamat Anda mendapatkan diskon!\n");
+        printf("Total belanja Anda setelah diskon adalah %.2f\n", diskon10);
+    }   
+    
+  Bagian kode tersebut bertujuan untuk memberikan diskon kepada pengguna berdasarkan total belanja yang telah dihitung sebelumnya. diskon kan didapat ketika total belanja diatas 100000 dan persenan diskon akan bertambah seiring melebarnya interval.
+
+
  
 ## 8. makefile
 
