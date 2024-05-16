@@ -243,6 +243,124 @@ h) printf("==Kode produk tidak ditemukan==\n");: Menampilkan pesan jika kode pro
 Fungsi tambahStok digunakan untuk menambahkan stok produk berdasarkan kode produk yang dimasukkan pengguna. Fungsi kurangiStok digunakan untuk mengurangkan stok produk berdasarkan kode produk yang dimasukkan pengguna. Kedua fungsi melakukan pencarian produk berdasarkan kode, memodifikasi stok produk, dan menampilkan pesan sukses atau pesan kesalahan sesuai dengan kondisi yang terjadi.
 
 ## 5. produk.c
+
+	  #include "header.h"
+
+Sintaks ini berfungsi untuk memasukkan file header header.h ke dalam program yang memungkinkan stok.c mengakses semua deklarasi yang ada di dalam file header tersebut, termasuk definisi struct dan prototype fungsi.
+
+
+	// Fungsi untuk menambahkan barang ke daftar barang
+	// Parameter:
+	//    dataproduk: array dari struct produk yang menyimpan data produk
+	//    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
+	void tambahBarang(Produk dataproduk[], int *jumlahproduk){
+	    // Cek apakah kapasitas daftar produk sudah penuh
+	    if (*jumlahproduk >= MAX_BARANG) {
+	        printf("Kapasitas daftar produk penuh!\n");
+	        return;
+	    }
+	
+	    // Input data produk dari pengguna
+	    printf("-----------------------\n");
+	    printf("Masukkan kode produk: ");
+	    scanf("%s", dataproduk[*jumlahproduk].kode);
+	    printf("Masukkan nama produk: ");
+	    scanf("%s", dataproduk[*jumlahproduk].nama);
+	    printf("Masukkan harga produk: ");
+	    scanf("%f", &dataproduk[*jumlahproduk].harga);
+	    printf("Masukkan stok produk: ");
+	    scanf("%d", &dataproduk[*jumlahproduk].stok);
+	    printf("-------------------------\n");
+	    printf("Produk berhasil ditambah!\n");
+	
+	    // Tambah jumlah produk
+	    (*jumlahproduk)++;
+	}
+
+### Deskripsi ###
+a) if (*jumlahproduk >= MAX_BARANG): Memeriksa apakah jumlah produk sudah mencapai batas maksimum. Jika iya, menampilkan pesan bahwa kapasitas daftar produk sudah penuh.
+b) scanf: Mengambil input dari pengguna untuk kode produk, nama produk, harga produk, dan stok produk.
+c) (*jumlahproduk)++;: Menambahkan jumlah produk setelah produk baru berhasil ditambahkan.
+
+	// Fungsi untuk menghapus produk dari daftar produk
+	// Parameter:
+	//    dataproduk: array dari struct produk yang menyimpan data produk
+	//    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
+	void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
+	    // Cek apakah jumlah produk lebih dari batas minimum
+	    if (*jumlahproduk <= MIN_BARANG) {
+	        printf("==Produk tidak dapat dikurang!==\n");
+	        return;
+	    }
+	
+	    char kodeproduk[10];
+	    printf("-----------------------\n");
+	    // Minta pengguna memasukkan kode produk yang akan dihapus
+	    printf("Masukkan kode produk yang akan dihapus: ");
+	    scanf("%s", kodeproduk);
+	
+	    // Cari produk berdasarkan kode
+	    int found = 0;
+	    for (int i = 0; i < *jumlahproduk; i++) {
+	        if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
+	            found = 1;
+	            // Geser produk berikutnya ke posisi produk yang dihapus
+	            for (int j = i; j < *jumlahproduk - 1; j++) {
+	                dataproduk[j] = dataproduk[j + 1];
+	            }
+	
+	            // Kurangi jumlah produk
+	            (*jumlahproduk)--;
+	            printf("-----------------------\n");
+	            printf("Produk berhasil dihapus!\n");
+	            break;
+	        }
+	    }
+	
+	    // Jika kode produk tidak ditemukan
+	    if (!found) {
+	        printf("Kode produk tidak ditemukan!\n");
+	    }
+	}
+
+### Deskripsi ###
+a) if (*jumlahproduk <= MIN_BARANG): Memeriksa apakah jumlah produk kurang dari atau sama dengan batas minimum. Jika iya, menampilkan pesan bahwa produk tidak dapat dikurangi.
+b) scanf("%s", kodeproduk);: Mengambil input dari pengguna untuk kode produk yang akan dihapus.
+c) for (int i = 0; i < *jumlahproduk; i++): Loop untuk mencari produk berdasarkan kode yang dimasukkan.
+d) if (strcmp(dataproduk[i].kode, kodeproduk) == 0): Memeriksa apakah kode produk pada indeks saat ini cocok dengan kode produk yang dimasukkan.
+e) for (int j = i; j < *jumlahproduk - 1; j++): Menggeser produk berikutnya ke posisi produk yang dihapus.
+f) (*jumlahproduk)--;: Mengurangi jumlah produk setelah produk dihapus.
+
+	// Fungsi untuk menulis data barang ke file eksternal
+	// Parameter:
+	//    dataproduk: array dari struct produk yang menyimpan data produk
+	//    jumlahproduk: integer yang menyimpan jumlah produk saat ini
+	void tulisDataBarang(Produk dataproduk[], int jumlahproduk) {
+	    FILE *file;
+	    // Buka file data_barang.txt dalam mode tulis
+	    file = fopen("data_barang.txt", "w");
+	    if (file == NULL) {
+	        printf("File data_barang.txt tidak dapat dibuka.\n");
+	        exit(1);
+	    }
+	
+	    // Tulis data produk ke dalam file
+	    for (int i = 0; i < jumlahproduk; i++) {
+	        fprintf(file, "%s %s %.2f %d\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
+	    }
+	
+	    // Tutup file
+	    fclose(file);
+	}
+
+### Deskripsi ###
+a) file = fopen("data_barang.txt", "w");:  Membuka file data_barang.txt dalam mode tulis. Jika file tidak dapat dibuka, program akan berhenti dan menampilkan pesan kesalahan.
+b) fprintf(file, "%s %s %.2f %d\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);: Menulis data produk ke dalam file dengan format yang sesuai.
+c) fclose(file);: Menutup file setelah selesai menulis.
+
+### Kesimpulan ###
+Fungsi tambahBarang digunakan untuk menambahkan barang ke daftar barang dengan meminta input dari pengguna. Fungsi hapusBarang digunakan untuk menghapus produk dari daftar barang berdasarkan kode produk yang dimasukkan pengguna. Fungsi tulisDataBarang digunakan untuk men
+
 ## 6. tampilan.c
 ## 7. transaksi.c
 ## 8. makefile
