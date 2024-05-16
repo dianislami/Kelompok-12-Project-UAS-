@@ -431,6 +431,42 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
       
  a) float totalBelanja = 0;: Variabel totalBelanja digunakan untuk menyimpan jumlah total belanjaan, awalnya diinisialisasi dengan nilai 0. b)float diskon10, diskon20, diskon25;: Variabel diskon10, diskon20, dan diskon25 digunakan untuk menyimpan nilai diskon yang akan diberikan, masing-masing untuk diskon 10%, 20%, dan 25%. c) char kodeproduk[10];: Array kodeproduk digunakan untuk menyimpan kode produk yang akan dipilih oleh pengguna. d) int jumlah;: Variabel jumlah digunakan untuk menyimpan jumlah produk yang akan dibeli oleh pengguna.
 
+	while (1) {
+      	  printf("Masukkan kode produk yang akan dibeli (ketik 'selesai' untuk selesai): ");
+      	  scanf("%s", kodeproduk);
+
+     	   if (strcmp(kodeproduk, "selesai") == 0) {
+            break;
+        }
+
+ loop while yang berjalan selama kondisinya benar, yaitu 1, yang artinya loop ini akan berjalan tanpa henti. Di dalam loop ini, pengguna diminta untuk memasukkan kode produk yang akan dibeli. Jika pengguna mengetikkan "selesai", loop akan dihentikan dengan menggunakan pernyataan break. a) scanf("%s", kodeproduk);: Pernyataan scanf digunakan untuk mengambil input dari pengguna. %s digunakan untuk membaca string dari input. String yang dimasukkan oleh pengguna akan disimpan di dalam variabel kodeproduk. b) if (strcmp(kodeproduk, "selesai") == 0) { break; }: Ini adalah pernyataan if yang memeriksa apakah pengguna telah memasukkan "selesai" atau tidak. strcmp adalah fungsi untuk membandingkan dua string. Jika string yang dimasukkan oleh pengguna adalah "selesai", maka kondisi ini akan bernilai true (0), dan loop akan dihentikan dengan menggunakan break.
+
+ 	for (int i = 0; i < jumlahproduk; i++) {
+            if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
+                printf("Masukkan jumlah produk yang akan dibeli: ");
+                scanf("%d", &jumlah);
+                if (jumlah > dataproduk[i].stok) {
+                    printf("\nStok produk tidak mencukupi.\n");
+                } else {
+                    totalBelanja += dataproduk[i].harga * jumlah;
+                    dataproduk[i].stok -= jumlah;
+                    printf("-------------------------------------------------\n");
+                    printf("Produk berhasil ditambahkan ke keranjang belanja.\n");
+                }
+                break;
+            }
+            if (i == jumlahproduk - 1) {
+                printf("\n==Kode produk tidak valid==\n");
+            }
+        }
+    }
+    printf("Total belanja Anda: %.2f\n", totalBelanja);
+
+ Dalam loop while, user diminta untuk memasukkan kode produk yang akan dibeli, dan pengulangan tersebut berlanjut hingga user input kata "selesai". Setiap kode produk yang dimasukkan oleh user akan dibandingkan dengan kode produk yang tersedia dalam array dataproduk[]. Jika kode produk yang dimasukkan valid, user kemudian diminta untuk memasukkan jumlah produk yang akan dibeli. Jumlah produk yang dimasukkan oleh pengguna akan dibandingkan dengan stok yang tersedia untuk produk tersebut. Jika stok mencukupi, total belanja akan diupdate dengan harga produk dikalikan dengan jumlah yang diminta, dan stok produk akan dikurangi sesuai dengan jumlah yang dibeli. Pesan konfirmasi akan dicetak bahwa produk berhasil ditambahkan ke keranjang belanja. Namun, jika kode produk tidak valid, pesan kesalahan akan dicetak. Setelah proses pembelian selesai, total belanja akan ditampilkan kepada user
+ 
+
+
+
 
 
 
