@@ -363,6 +363,52 @@ c) fclose(file);: Menutup file setelah selesai menulis.
 Fungsi tambahBarang digunakan untuk menambahkan barang ke daftar barang dengan meminta input dari pengguna. Fungsi hapusBarang digunakan untuk menghapus produk dari daftar barang berdasarkan kode produk yang dimasukkan pengguna. Fungsi tulisDataBarang digunakan untuk men
 
 ## 6. tampilan.c
+ #include "header.h"
+
+   Sintaks ini berfungsi untuk memasukkan file header header.h ke dalam program yang memungkinkan program utama mengakses semua header yang tertera dan definisi struct Produk serta semua prototype fungsi yang ada di header.h.
+
+    void bacaDataBarang(Produk dataproduk[], int *jumlahproduk) {
+    FILE *file;
+    file = fopen("data_barang.txt", "r");
+    if (file == NULL) {
+        printf("File data_barang.txt tidak dapat dibuka.\n");
+        exit(1);
+    }
+**##deskripsi fungsi**
+a) void bacaDataBarang(Produk dataproduk[], int *jumlahproduk) memiliki dua parameter: dataproduk[] yaitu sebuah array dari struktur Produk, yang akan diisi dengan data produk dari file, dan *jumlahproduk, sebuah pointer ke variabel yang akan menyimpan jumlah produk yang berhasil dibaca. b) FILE *file; Ini adalah deklarasi variabel file yang bertipe pointer ke FILE. Variabel ini akan digunakan untuk menunjuk ke file yang akan dibuka. c) file = fopen("data_barang.txt", "r"); Fungsi fopen digunakan untuk membuka file "data_barang.txt" dalam mode ("r"). Jika file berhasil dibuka, file akan menunjuk ke file tersebut. d) if (file == NULL) { ... } Ini adalah kondisional if yang digunakan untuk memeriksa apakah file berhasil dibuka atau tidak. Jika file bernilai NULL, artinya file tidak berhasil dibuka, maka program akan mencetak pesan kesalahan menggunakan printf dan keluar dari program menggunakan exit(1).
+
+      *jumlahproduk = 0;
+      while (fscanf(file, "%s %s %f %d", dataproduk[*jumlahproduk].kode, dataproduk[*jumlahproduk].nama, &dataproduk[*jumlahproduk].harga, &dataproduk[*jumlahproduk].stok) != EOF) {
+    (*jumlahproduk)++;
+      }
+      fclose(file);
+      }
+*jumlahproduk = 0;: Inisialisasi jumlah produk yang berhasil dibaca menjadi 0. Ini dilakukan sebelum membaca produk dari file.
+
+     while (fscanf(file, "%s %s %f %d", dataproduk[*jumlahproduk].kode, dataproduk[*jumlahproduk].nama, &dataproduk[*jumlahproduk].harga, &dataproduk[*jumlahproduk].stok) != EOF) {
+    (*jumlahproduk)++;
+      }
+a) while (fscanf(file, "%s %s %f %d", dataproduk[*jumlahproduk].kode, dataproduk[*jumlahproduk].nama, &dataproduk[*jumlahproduk].harga, &dataproduk[*jumlahproduk].stok) != EOF) {: Ini adalah loop while yang membaca data produk dari file menggunakan fscanf. Loop ini akan terus berjalan sampai fscanf mencapai akhir file (EOF). fscanf(file, "%s %s %f %d", dataproduk[*jumlahproduk].kode, dataproduk[*jumlahproduk].nama, &dataproduk[*jumlahproduk].harga, &dataproduk[*jumlahproduk].stok) Ini adalah panggilan fscanf yang membaca data dari file. Format string "%s %s %f %d" menunjukkan bahwa kita mengharapkan format data berturut-turut: string, string, float, dan integer. b) dataproduk[*jumlahproduk].kode, dataproduk[*jumlahproduk].nama, &dataproduk[*jumlahproduk].harga, dan &dataproduk[*jumlahproduk].stok Ini adalah lokasi di mana fscanf akan menyimpan data yang dibaca dari file. c) *jumlahproduk: Ini adalah indeks saat ini dalam array dataproduk[], yang digunakan untuk menyimpan data produk yang baru dibaca. d) != EOF: Kondisi loop ini akan terus berjalan sampai fscanf mengembalikan EOF (End of File), yang menunjukkan bahwa kita telah mencapai akhir file. e) (*jumlahproduk)++;: Setiap kali satu baris data produk berhasil dibaca, variabel jumlahproduk akan ditambahkan satu, menunjukkan bahwa satu produk telah berhasil dibaca.
+
+    fclose(file);
+      }
+
+fclose(file);: Setelah selesai membaca file, file ditutup menggunakan fungsi fclose.
+
+      void tampilkanDaftarBarang(Produk dataproduk[], int jumlahproduk){
+          printf("----------------------------------------------------------------\n");
+          printf("\t\t\tDAFTAR PRODUK\t\t\t\t|\n");
+          printf("----------------------------------------------------------------\n");
+          printf("KODE PRODUK\t|NAMA PRODUK\t|HARGA PRODUK\t|STOK PRODUK\t|\n");
+          printf("----------------------------------------------------------------\n");
+
+Fungsi tampilkanDaftarBarang bertanggung jawab untuk menampilkan daftar produk yang telah dibaca dari file eksternal. Bagian ini mencetak header tabel untuk menampilkan daftar produk.
+
+    for (int i = 0; i < jumlahproduk; i++) {
+        printf("%s\t\t|%s\t\t|%.2f\t|%d\t\t|\n", dataproduk[i].kode, dataproduk[i].nama, dataproduk[i].harga, dataproduk[i].stok);
+    }
+Bagian ini adalah loop for yang mencetak setiap baris produk dari array dataproduk[]. Setiap baris mencetak kode produk, nama produk, harga, dan stok, sesuai dengan format yang telah ditentukan.
+
 ## 7. transaksi.c
 ## 8. makefile
 
