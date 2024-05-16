@@ -463,13 +463,12 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
     printf("Total belanja Anda: %.2f\n", totalBelanja);
 
  Dalam loop while, user diminta untuk memasukkan kode produk yang akan dibeli, dan pengulangan tersebut berlanjut hingga user input kata "selesai". Setiap kode produk yang dimasukkan oleh user akan dibandingkan dengan kode produk yang tersedia dalam array dataproduk[]. Jika kode produk yang dimasukkan valid, user kemudian diminta untuk memasukkan jumlah produk yang akan dibeli. Jumlah produk yang dimasukkan oleh pengguna akan dibandingkan dengan stok yang tersedia untuk produk tersebut. Jika stok mencukupi, total belanja akan diupdate dengan harga produk dikalikan dengan jumlah yang diminta, dan stok produk akan dikurangi sesuai dengan jumlah yang dibeli. Pesan konfirmasi akan dicetak bahwa produk berhasil ditambahkan ke keranjang belanja. Namun, jika kode produk tidak valid, pesan kesalahan akan dicetak. Setelah proses pembelian selesai, total belanja akan ditampilkan kepada user
+
+	diskon10 = totalBelanja - (totalBelanja*10/100);
+	diskon20 = totalBelanja - (totalBelanja*20/100);
+	diskon25 = totalBelanja - (totalBelanja*25/100);
+
  
-
-
-
-
-
-
 ## 8. makefile
 
       main:
