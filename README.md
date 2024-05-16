@@ -409,6 +409,9 @@ Fungsi tampilkanDaftarBarang bertanggung jawab untuk menampilkan daftar produk y
     }
 Bagian ini adalah loop for yang mencetak setiap baris produk dari array dataproduk[]. Setiap baris mencetak kode produk, nama produk, harga, dan stok, sesuai dengan format yang telah ditentukan.
 
+**##kesimpulan**
+Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBarang, yang bekerja sama untuk membaca data produk dari file eksternal, menyimpannya dalam array struktur data, dan menampilkannya dalam format tabel yang terstruktur. Fungsi bacaDataBarang bertugas membuka file, membaca baris-baris produk, dan menghitung jumlah produk yang berhasil dibaca, sementara fungsi tampilkanDaftarBarang bertanggung jawab untuk mencetak daftar produk yang telah dibaca ke layar dengan format tabel yang jelas. Dengan kerja sama kedua fungsi ini, pengguna dapat dengan mudah menyimpan, mengelola, dan melihat daftar produk yang tersedia.
+
 ## 7. transaksi.c
 ## 8. makefile
 
