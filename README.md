@@ -487,6 +487,9 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
  	
   Bagian kode ini merupakan bagian akhir dari blok if dan else if sebelumnya, yang menangani kasus di mana total belanja tidak mencapai nilai minimum untuk mendapatkan diskon. Jika total belanja kurang dari 100.000, maka pesan akan dicetak ke layar yang memberi tahu pengguna bahwa mereka tidak mendapatkan diskon karena total belanja tidak mencapai nilai minimal yang diperlukan. 
 
+  **##kesimpulan**
+  Fungsi pembayaran yang diberikan bertanggung jawab untuk mengelola proses pembelian produk dari pengguna. Pertama, pengguna diminta untuk memasukkan kode produk yang ingin dibeli dan jumlahnya. Setelah pengguna selesai memilih produk, total belanja akan dihitung berdasarkan harga produk yang dipilih dan jumlahnya. Selanjutnya, terdapat logika yang menghitung diskon berdasarkan total belanja yang dihitung sebelumnya. Diskon diberikan sesuai dengan rentang nilai total belanja yang telah ditetapkan (10%, 20%, atau 25%), dan total belanja setelah diskon akan dicetak ke layar. Jika total belanja tidak mencapai nilai minimum untuk mendapatkan diskon, maka pengguna akan diberitahu bahwa mereka tidak mendapatkan diskon.
+
 ## 8. makefile
 
       main:
