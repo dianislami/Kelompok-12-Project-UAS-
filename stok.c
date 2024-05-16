@@ -7,7 +7,8 @@
 void tambahStok(Produk dataproduk[], int jumlahproduk){
     int jumlah;
     char kodeproduk[20];
-    
+
+    //Input data produk dari pengguna
     printf("-----------------------\n");
     printf("Masukkan kode produk: ");
     scanf("%s", kodeproduk);
@@ -35,6 +36,7 @@ void kurangiStok(Produk dataproduk[], int jumlahproduk) {
     int jumlah;
     char kodeproduk[20];
 
+    //Input data produk dari pengguna
     printf("-----------------------\n");
     printf("Masukkan kode produk: ");
     scanf("%s", kodeproduk);
