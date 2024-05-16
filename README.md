@@ -476,10 +476,17 @@ Kode di atas terdiri dari dua fungsi, yaitu bacaDataBarang dan tampilkanDaftarBa
         printf("Total belanja Anda setelah diskon adalah %.2f\n", diskon10);
     }   
     
-  Bagian kode tersebut bertujuan untuk memberikan diskon kepada pengguna berdasarkan total belanja yang telah dihitung sebelumnya. diskon kan didapat ketika total belanja diatas 100000 dan persenan diskon akan bertambah seiring melebarnya interval.
+  Bagian kode tersebut bertujuan untuk memberikan diskon 10% kepada pengguna berdasarkan total belanja yang telah dihitung sebelumnya. diskon kan didapat ketika total belanja diatas 100000 dan persenan diskon akan bertambah seiring melebarnya interval.
 
+	  //Jika tidak mendapat diskon
+	    else if (totalBelanja < 100000){
+	        printf("----------------------------------------------------------------------\n");
+	        printf("Maaf, Anda tidak mendapat diskon karena tidak mencapai minimal belanja\n");
+	    }
+	}
+ 	
+  Bagian kode ini merupakan bagian akhir dari blok if dan else if sebelumnya, yang menangani kasus di mana total belanja tidak mencapai nilai minimum untuk mendapatkan diskon. Jika total belanja kurang dari 100.000, maka pesan akan dicetak ke layar yang memberi tahu pengguna bahwa mereka tidak mendapatkan diskon karena total belanja tidak mencapai nilai minimal yang diperlukan. 
 
- 
 ## 8. makefile
 
       main:
