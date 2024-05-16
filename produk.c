@@ -11,6 +11,7 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
         return;
     }
 
+    //input data produk dari pengguna
     printf("-----------------------\n");
     printf("Masukkan kode produk: ");
     scanf("%s", dataproduk[*jumlahproduk].kode);
@@ -23,11 +24,16 @@ void tambahBarang(Produk dataproduk[], int *jumlahproduk){
     printf("-------------------------\n");
     printf("Produk berhasil ditambah!\n");
 
+    //tambah jumlah produk
     (*jumlahproduk)++;
 }
 
 // Fungsi untuk menghapus produk dari daftar produk
+// Parameter:
+//    dataproduk: array dari struct Produk yang menyimpan data produk
+//    jumlahproduk: pointer ke integer yang menyimpan jumlah produk saat ini
 void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
+    //Cek apakah jumlah produk lebih dari batas minimum
     if (*jumlahproduk <= MIN_BARANG) {
         printf("==Produk tidak dapat dikurang!==\n");
         return;
