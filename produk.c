@@ -44,10 +44,12 @@ void hapusBarang(Produk dataproduk[], int *jumlahproduk) {
     printf("Masukkan kode produk yang akan dihapus: ");
     scanf("%s", kodeproduk);
 
+    //Cari produk berdasarkan kode
     int found = 0;
     for (int i = 0; i < *jumlahproduk; i++) {
         if (strcmp(dataproduk[i].kode, kodeproduk) == 0) {
             found = 1;
+            //Geser produk berikutnya ke posisi produk yang dihapus
             for (int j = i; j < *jumlahproduk - 1; j++) {
                 dataproduk[j] = dataproduk[j + 1];
             }
