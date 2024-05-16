@@ -1,6 +1,6 @@
 # Kelompok 12 Project UAS
 Fungsi-Fungsi yang akan kami gunakan pada project UAS ini:
-## 1. header.h:
+## 1. header.h
 File ini berisi semua header yang akan digunakan dalam kode program yaitu stdio.h, stdlib.h, dan string.h serta definisi struct dan prototype dari semua fungsi yang digunakan dalam project uas ini.
    
        typedef struct Produk {
@@ -75,9 +75,11 @@ c)case 7: Jika pengguna memilih untuk keluar, program akan berhenti dengan meman
 d)default: Jika pilihan tidak valid, program menampilkan pesan kesalahan.
 
       exit(0);
+
+Fungsi exit ini digunakan untuk menghentikan eksekusi program. Parameter 0 menunjukkan bahwa program berhenti tanpa error.
       
 ### Kesimpulan ###      
-Fungsi exit ini digunakan untuk menghentikan eksekusi program. Parameter 0 menunjukkan bahwa program berhenti tanpa error.
+File main.c ini merupakan file utama dimana semua fungsi yang telah dibuat dapat dipilih dan dijalankan sesuai dengan inputan user.
 
 ## 3. login.c
 
@@ -141,4 +143,20 @@ Fungsi Login digunakan untuk mengautentikasi pengguna sebelum mereka dapat menga
 ## 7. transaksi.c
 ## 8. makefile
 
-Untuk menampilkan semua fungsi yang kami gunakan di atas, kami menggunakan file (data_barang.txt)
+      main:
+	      gcc -o main header.h main.c produk.c transaksi.c tampilan.c login.c stok.c 
+	      ./main
+       
+Perintah diatas menggunakan gcc (GNU Compiler Collection) untuk mengompilasi dan menghubungkan beberapa file sumber C yaitu main.c, produk.c, transaksi.c, tampilan.c, login.c, stok.c bersama dengan file header yaitu header.h.
+
+      -o main 
+
+Menentukan bahwa output dari proses kompilasi ini adalah sebuah executable bernama main.
+      
+      ./main
+
+Perintah ini menjalankan executable main yang baru saja dibuat.
+## Kesimpulan
+Makefile adalah sebuah berkas teks yang berisi serangkaian aturan untuk mengotomatisasi proses kompilasi dan pengelolaan proyek perangkat lunak. Makefile membantu mengelola proyek yang terdiri dari banyak file sumber dan dependensi, sehingga memudahkan dan mempercepat proses kompilasi.
+
+Untuk menampilkan semua fungsi yang kami gunakan di atas, kami menggunakan file external txt yaitu data_barang.txt
